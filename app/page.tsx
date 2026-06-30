@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2, Cpu, Globe2, Orbit, TerminalSquare } from 'lucide-react';
-import { launchSequence, systemModules } from '@/lib/os-data';
+import { autonomousModes, frontierCapabilities, launchSequence, memoryRecoveryCapabilities, memoryRecoveryPipeline, problemSolvingCapabilities, problemSolvingLoop, systemModules } from '@/lib/os-data';
 
 export default function Home() {
   return (
@@ -42,8 +42,14 @@ export default function Home() {
               <a href="#modules" className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-black transition hover:bg-cyan-100">
                 Explore OS Modules <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
-              <a href="#sequence" className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white/80 backdrop-blur transition hover:border-white/30 hover:bg-white/10">
-                View Launch Sequence
+              <a href="#problem-solving" className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white/80 backdrop-blur transition hover:border-white/30 hover:bg-white/10">
+                Problem Solver
+              </a>
+              <a href="#memory-recovery" className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-200/20 bg-cyan-200/10 px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cyan-100 backdrop-blur transition hover:border-cyan-200/40 hover:bg-cyan-200/15">
+                Instant Memory
+              </a>
+              <a href="#frontier" className="inline-flex items-center justify-center gap-3 rounded-2xl border border-fuchsia-200/20 bg-fuchsia-200/10 px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-fuchsia-100 backdrop-blur transition hover:border-fuchsia-200/40 hover:bg-fuchsia-200/15">
+                Frontier Mode
               </a>
             </div>
           </div>
@@ -96,6 +102,206 @@ export default function Home() {
               </article>
             );
           })}
+        </div>
+      </section>
+
+
+      <section id="problem-solving" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <div className="mb-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="text-xs uppercase tracking-[0.35em] text-violet-200/70">Reasoning Engine</p>
+            <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">Problem solving capabilities</h2>
+          </div>
+          <p className="text-sm leading-7 text-white/55">
+            AUOS treats problems like operating-system incidents: intake, diagnosis, decomposition, delegation, verification, memory, and continuous improvement. The system does not just answer questions — it turns uncertainty into executable work.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {problemSolvingCapabilities.map((capability) => {
+            const Icon = capability.icon;
+            return (
+              <article key={capability.name} className="rounded-[1.5rem] border border-white/10 bg-black/35 p-5 transition hover:border-violet-200/40 hover:bg-white/[0.055]">
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-violet-300/10 text-violet-100 ring-1 ring-violet-200/20">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="rounded-full border border-violet-200/15 bg-violet-200/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-violet-100/70">
+                    {capability.mode}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold tracking-[-0.03em]">{capability.name}</h3>
+                <p className="mt-3 min-h-28 text-sm leading-7 text-white/50">{capability.description}</p>
+                <div className="mt-5 space-y-2 border-t border-white/10 pt-4">
+                  {capability.outputs.map((output) => (
+                    <div key={output} className="flex items-center gap-2 text-xs text-white/50">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-200" />
+                      {output}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-400/[0.12] via-white/[0.04] to-cyan-300/[0.08] p-6 md:p-8">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">Closed Loop</p>
+              <h3 className="mt-2 text-2xl font-black tracking-[-0.04em]">From problem to verified outcome</h3>
+            </div>
+            <span className="rounded-full border border-emerald-200/20 bg-emerald-200/10 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-emerald-100">
+              Evidence-backed execution
+            </span>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {problemSolvingLoop.map((step, index) => (
+              <div key={step} className="rounded-2xl border border-white/10 bg-black/25 p-4">
+                <div className="mb-3 text-[10px] uppercase tracking-[0.25em] text-white/35">Step {String(index + 1).padStart(2, '0')}</div>
+                <p className="text-sm leading-6 text-white/68">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      <section id="memory-recovery" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <div className="rounded-[2.25rem] border border-cyan-200/10 bg-[radial-gradient(circle_at_top_left,rgba(103,232,249,0.16),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">Memory Recovery Layer</p>
+              <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">Near-instant recall</h2>
+            </div>
+            <p className="text-sm leading-7 text-white/58">
+              AUOS memory recovery is designed like a multi-tier cache: hot project state returns instantly, semantic search recovers deeper context in milliseconds, and cold archives stay available without slowing the active agent loop.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {memoryRecoveryCapabilities.map((capability) => {
+              const Icon = capability.icon;
+              return (
+                <article key={capability.name} className="rounded-[1.5rem] border border-white/10 bg-black/35 p-5 transition hover:border-cyan-200/40 hover:bg-cyan-200/[0.055]">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-cyan-300/10 text-cyan-100 ring-1 ring-cyan-200/20">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="rounded-full border border-cyan-200/15 bg-cyan-200/5 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-cyan-100/75">
+                      {capability.target}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold tracking-[-0.03em]">{capability.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/50">{capability.description}</p>
+                  <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-xs uppercase tracking-[0.18em] text-white/42">
+                    {capability.mechanism}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-[1.75rem] border border-white/10 bg-black/35 p-6">
+              <p className="text-xs uppercase tracking-[0.35em] text-emerald-200/70">Recovery SLA</p>
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                {[
+                  ['Hot context', '< 50ms'],
+                  ['Decision recall', '< 100ms'],
+                  ['Semantic recall', '< 150ms'],
+                  ['Agent handoff', '< 200ms'],
+                  ['Snapshot resume', '< 250ms'],
+                  ['Cold archive', '< 1s'],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                    <div className="text-2xl font-black tracking-[-0.05em] text-white">{value}</div>
+                    <div className="mt-1 text-[10px] uppercase tracking-[0.22em] text-white/35">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-[1.75rem] border border-white/10 bg-black/35 p-6">
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">Pipeline</p>
+              <div className="mt-6 grid gap-2 md:grid-cols-2">
+                {memoryRecoveryPipeline.map((step, index) => (
+                  <div key={step} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cyan-100 text-[10px] font-black text-black">{index + 1}</span>
+                    <p className="text-sm leading-6 text-white/62">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="frontier" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-fuchsia-200/15 bg-[#08050d] p-6 md:p-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(217,70,239,0.2),transparent_32%),radial-gradient(circle_at_90%_10%,rgba(103,232,249,0.14),transparent_26%),radial-gradient(circle_at_50%_100%,rgba(110,231,183,0.12),transparent_30%)]" />
+          <div className="relative">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-fuchsia-200/70">Frontier Functionality</p>
+                <h2 className="mt-3 text-4xl font-black tracking-[-0.055em] md:text-6xl">Things that should feel impossible</h2>
+              </div>
+              <p className="text-sm leading-7 text-white/58">
+                AUOS is designed to evolve from a dashboard into an autonomous operating layer: it can imagine options, simulate consequences, launch specialized workers, heal itself, transfer lessons between projects, and turn products into revenue systems.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {frontierCapabilities.map((capability) => {
+                const Icon = capability.icon;
+                return (
+                  <article key={capability.name} className="rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur transition hover:-translate-y-1 hover:border-fuchsia-200/35 hover:bg-white/[0.06]">
+                    <div className="mb-5 flex items-center justify-between">
+                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-fuchsia-300/10 text-fuchsia-100 ring-1 ring-fuchsia-200/20">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span className="rounded-full border border-fuchsia-200/15 bg-fuchsia-200/5 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-fuchsia-100/72">
+                        {capability.horizon}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold tracking-[-0.035em]">{capability.name}</h3>
+                    <p className="mt-3 text-sm leading-7 text-white/52">{capability.description}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {capability.primitives.map((primitive) => (
+                        <span key={primitive} className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/45">
+                          {primitive}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 rounded-[2rem] border border-white/10 bg-black/35 p-6 md:p-8">
+              <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-emerald-200/70">Autonomous Modes</p>
+                  <h3 className="mt-2 text-2xl font-black tracking-[-0.04em]">Observe → Imagine → Simulate → Execute → Evolve</h3>
+                </div>
+                <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/45">
+                  Continuous compounding loop
+                </span>
+              </div>
+              <div className="grid gap-3 md:grid-cols-5">
+                {autonomousModes.map((item, index) => (
+                  <div key={item.mode} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                    <div className="mb-4 flex items-center justify-between">
+                      <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-xs font-black text-black">{index + 1}</span>
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-white/30">mode</span>
+                    </div>
+                    <h4 className="font-bold tracking-[-0.03em] text-white">{item.mode}</h4>
+                    <p className="mt-2 text-xs leading-6 text-white/48">{item.promise}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
