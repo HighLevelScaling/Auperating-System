@@ -1,0 +1,30 @@
+{
+  "name": "auperating-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Auperating System — an AI-native operating system for autonomous projects, agents, memory, secrets, and deployment.",
+  "scripts": {
+    "dev": "next dev -p 3200",
+    "build": "next build",
+    "start": "next start -p 3200",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vercel/analytics": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
