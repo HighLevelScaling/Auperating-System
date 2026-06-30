@@ -1,0 +1,13 @@
+[
+  {
+    "id": "deploy-local-build",
+    "projectId": "auos",
+    "provider": "local",
+    "environment": "production-build",
+    "url": null,
+    "status": "passed",
+    "commitSha": "a1692f6",
+    "createdAt": "2026-06-30T00:00:00.000Z",
+    "summary": "Local typecheck and production build passed before console expansion."
+  }
+]

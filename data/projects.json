@@ -1,0 +1,14 @@
+[
+  {
+    "id": "auos",
+    "name": "The Auperating System",
+    "slug": "auperating-system",
+    "path": "/Users/kdot/repos/Auperating-System",
+    "status": "active",
+    "repoUrl": null,
+    "vercelProjectId": null,
+    "health": 92,
+    "summary": "AI-native operating layer for projects, agents, memory, secrets, deployment, and autonomous business workflows.",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  }
+]

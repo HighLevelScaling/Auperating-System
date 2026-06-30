@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mem-auos-definition",
+    "scope": "project",
+    "scopeId": "auos",
+    "kind": "architecture",
+    "content": "AUOS is an application-layer AI operating system coordinating agents, memory, credentials, projects, deployments, and automations above the host OS.",
+    "source": "agent",
+    "trust": 0.95,
+    "tags": [
+      "architecture",
+      "definition"
+    ],
+    "createdAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "mem-launch-swarm",
+    "scope": "project",
+    "scopeId": "auos",
+    "kind": "decision",
+    "content": "AUOS should integrate the 7-agent Project Launch Swarm: orchestrator, environment/deployment, context, brand, backend/memory, frontend/microfrontends, and secrets broker.",
+    "source": "user",
+    "trust": 1,
+    "tags": [
+      "swarm",
+      "agents"
+    ],
+    "createdAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "mem-secrets-policy",
+    "scope": "project",
+    "scopeId": "auos",
+    "kind": "credential-status",
+    "content": "Secrets Broker must report credential names and present/missing status only. Raw values must never enter docs, memory, UI, or logs.",
+    "source": "user",
+    "trust": 1,
+    "tags": [
+      "secrets",
+      "security"
+    ],
+    "createdAt": "2026-06-30T00:00:00.000Z"
+  }
+]

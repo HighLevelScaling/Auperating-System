@@ -1,0 +1,38 @@
+[
+  {
+    "id": "agent-orchestrator-seed",
+    "projectId": "auos",
+    "role": "orchestrator",
+    "status": "completed",
+    "sessionName": "seed-orchestrator",
+    "workdir": "/Users/kdot/repos/Auperating-System",
+    "briefPath": "docs/product/mvp-plan.md",
+    "summary": "Initialized AUOS mission, technical architecture, frontier modes, and memory recovery design.",
+    "startedAt": "2026-06-30T00:00:00.000Z",
+    "completedAt": "2026-06-30T00:10:00.000Z"
+  },
+  {
+    "id": "agent-secrets-seed",
+    "projectId": "auos",
+    "role": "secrets-broker",
+    "status": "ready",
+    "sessionName": "seed-secrets",
+    "workdir": "/Users/kdot/repos/Auperating-System",
+    "briefPath": "docs/secrets/credential-report.md",
+    "summary": "Credential model created. Scanner should report names/status only and never expose raw values.",
+    "startedAt": "2026-06-30T00:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "id": "agent-memory-seed",
+    "projectId": "auos",
+    "role": "backend-memory",
+    "status": "ready",
+    "sessionName": "seed-memory",
+    "workdir": "/Users/kdot/repos/Auperating-System",
+    "briefPath": "docs/backend/backend-memory-plan.md",
+    "summary": "Near-instant memory recovery architecture defined with hot cache, semantic index, snapshots, and handoff packets.",
+    "startedAt": "2026-06-30T00:00:00.000Z",
+    "completedAt": null
+  }
+]
